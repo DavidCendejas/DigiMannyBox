@@ -10,16 +10,29 @@ def inputHeight():
         input_height = float(input("Input a height (0.1-2 in): "))
     return input_height
 
+def inputInitials():
+    while True:
+        cand_initials = input('Input your initials (max 3): ')
+        if len(cand_initials) <= 3:
+            if cand_initials.isalpha() or cand_initials == '':
+                return cand_initials.upper()
+            else:
+                print('Invalid input')
+        else:
+            print('Invalid Input')
+    
+
 def main():
     
     square_dim = 96 * inputWidth() # (96 pixels to an inch) * inches
-    
+    initials = inputInitials()
+
     '''
     REMOVE ABOVE WHEN DOING RECTANGLES AND NOT JUST SQUARE
     rec_width = inputWidth() 
     rec_height = inputHeight() 
     '''
-    # input_initials = input("what are your initials? ")
+    
 
     with open("pre.svg", "w") as svg:
         svg.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n') #xml version
@@ -33,6 +46,11 @@ def main():
         svg.write('<rect x="100" y="100" width="{}" height="{}" ' \
             'stroke-width="2" stroke="black" fill="none"/>\n'.format(square_dim, square_dim)) #square
         
+        if len(initials) != 0:
+            svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \
+                'text-anchor="middle"> {} </text>\n'.format(100 + (square_dim/2), 
+                100 + (square_dim/2), square_dim / 96 * 32, initials))
+
         svg.write('</svg>') #svg end tag
     
     print("pre.svg has been created.")

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000%" height="1000%" viewbox="0 0 1000 1000" version="1.1">
+<rect x="100" y="100" width="480.0" height="480.0" stroke-width="2" stroke="black" fill="none"/>
+<circle cx = "260.0" cy = "556.0" r = "0.086" stroke-width="2" stroke="black" fill="black"/>
+<circle cx = "420.0" cy = "556.0" r = "0.086" stroke-width="2" stroke="black" fill="black"/>
+<circle cx = "260.0" cy = "124.0" r = "0.086" stroke-width="2" stroke="black" fill="black"/>
+<circle cx = "420.0" cy = "124.0" r = "0.086" stroke-width="2" stroke="black" fill="black"/>
+<circle cx = "556.0" cy = "260.0" r = "0.086" stroke-width="2" stroke="black" fill="black"/>
+<circle cx = "556.0" cy = "420.0" r = "0.086" stroke-width="2" stroke="black" fill="black"/>
+<circle cx = "124.0" cy = "260.0" r = "0.086" stroke-width="2" stroke="black" fill="black"/>
+<circle cx = "124.0" cy = "420.0" r = "0.086" stroke-width="2" stroke="black" fill="black"/>
+</svg>

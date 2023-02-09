@@ -1,19 +1,22 @@
+screwhole_edge = 96 * (1/16)
+screwhole = .086
+
 def inputWidth():
     input_width = 0
-    while input_width < 1 or input_width > 7:
-        input_width = float(input("Input a width (1-7 in): "))
+    while input_width < 3 or input_width > 7:
+        input_width = float(input("Input a width (3-7 in): "))
     return input_width
 
 def inputLength():
     input_length = 0
-    while input_length < 1 or input_length > 7:
-        input_length = float(input("Input a length (1-7 in): "))
+    while input_length < 3 or input_length > 7:
+        input_length = float(input("Input a length (3-7 in): "))
     return input_length
 
 def inputHeight():
     input_height = 0
-    while input_height < 1 or input_height > 5:
-        input_height = float(input("Input a height (1-7 in): "))
+    while input_height < 2 or input_height > 4:
+        input_height = float(input("Input a height (2-4 in): "))
     return input_height
 
 def inputHorCompartment():
@@ -39,25 +42,7 @@ def inputInitials():
         else:
             print('Invalid Input')
 
-def main():
-    start_x = 100
-    start_y = 100
-    thickness = .125
-
-    #initials = inputInitials()
-    rec_width = 96 * inputWidth()  # (96 pixels to an inch) * inches
-    rec_length = 96 * inputLength()
-    #rec_height = 96 * inputHeight() 
-
-    #screw dimensions
-    screwhole_edge = .25 * 96
-    screwhole = .086
-
-    #create screw holes
-    #side determines if it's on the length or width section
-    #location determines if it's in the front or the back section for width
-    #and left or right if it's length
-    def hole(side, location):
+def hole(svg, side, location, start_x, start_y, rec_length, rec_width):
         if side == "l" and location == "l": #length and left
             for i in range(1, 3, 1):          
                 dot = svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
@@ -81,6 +66,25 @@ def main():
         else:
             return "define side"
 
+def main():
+    start_x = 50
+    start_y = 50
+    thickness = .125
+
+    #initials = inputInitials()
+    rec_width = 96 * inputWidth()  # (96 pixels to an inch) * inches
+    rec_length = 96 * inputLength()
+    rec_height = 96 * inputHeight() 
+
+    #screw dimensions
+    
+
+    #create screw holes
+    #side determines if it's on the length or width section
+    #location determines if it's in the front or the back section for width
+    #and left or right if it's length
+    
+
  
 
     with open("pre.svg", "w") as svg:
@@ -97,13 +101,11 @@ def main():
             'stroke-width="2" stroke="black" fill="none"/>\n'.format(start_x, start_y, rec_width, rec_length)) 
         
                
-
-
         #screw holes for base
-        hole("w", "f")
-        hole("w", "b")
-        hole("l", "r")
-        hole("l", "l")
+        hole(svg, "w", "f", start_x, start_y, rec_length, rec_width)
+        hole(svg, "w", "b", start_x, start_y, rec_length, rec_width)
+        hole(svg, "l", "r", start_x, start_y, rec_length, rec_width)
+        hole(svg, "l", "l", start_x, start_y, rec_length, rec_width)
 
 
 

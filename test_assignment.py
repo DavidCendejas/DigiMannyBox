@@ -1,5 +1,5 @@
-screwhole_edge = 96 * (1/16)
-screwhole = .086
+screwhole_edge = 96 * (1/16) #screw dimensions
+screwhole = .09 * 96
 
 def inputWidth():
     input_width = 0
@@ -42,50 +42,64 @@ def inputInitials():
         else:
             print('Invalid Input')
 
+'''
+create screw holes
+side determines if it's on the length or width section
+location determines if it's in the front or the back section for width
+and left or right if it's length
+'''
+
 def hole(svg, side, location, start_x, start_y, rec_length, rec_width):
         if side == "l" and location == "l": #length and left
             for i in range(1, 3, 1):          
-                dot = svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(screwhole_edge + start_x, i * rec_length/3 + start_y, screwhole))
-            return dot
+                svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
+                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(screwhole_edge + start_x, i * rec_length/3 + start_y, screwhole/2))
         elif side == "w" and location == "b": #width and back
             for i in range(1, 3, 1):          
-                dot = svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, screwhole_edge + start_y, screwhole))
-            return dot
+                svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
+                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, screwhole_edge + start_y, screwhole/2))
         elif side == "l" and location == "r": #length and right
             for i in range(1, 3, 1):          
-                dot = svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(-screwhole_edge + start_x + rec_width, i * rec_length/3 + start_y, screwhole))
-            return dot
+                svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
+                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(-screwhole_edge + start_x + rec_width, i * rec_length/3 + start_y, screwhole/2))
         elif side == "w" and location == "f": #width and front
             for i in range(1, 3, 1):          
-                dot = svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole))
-            return dot
-        else:
-            return "define side"
+                svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
+                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole/2))
+
+
+def create_panel(svg, width, length, side, start):
+    T = .125 * 96
+
+    if side == 'width':
+        width = width
+        length = length - T
+    elif side == 'length':
+        width = width - 2*T
+        length = length - T
+    
+    svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
+
+    if side == 'base':
+        hole(svg, "w", "f", start[0], start[1], length, width)
+        hole(svg, "w", "b", start[0], start[1], length, width)
+        hole(svg, "l", "r", start[0], start[1], length, width)
+        hole(svg, "l", "l", start[0], start[1], length, width)
+    elif side == 'width':
+        hole(svg, "l", "l", start[0], start[1], length, width)
+        hole(svg, "l", "r", start[0], start[1], length, width)
+
+        
 
 def main():
     start_x = 50
     start_y = 50
-    thickness = .125
-
-    #initials = inputInitials()
-    rec_width = 96 * inputWidth()  # (96 pixels to an inch) * inches
-    rec_length = 96 * inputLength()
-    rec_height = 96 * inputHeight() 
-
-    #screw dimensions
-    
-
-    #create screw holes
-    #side determines if it's on the length or width section
-    #location determines if it's in the front or the back section for width
-    #and left or right if it's length
-    
-
  
+    #initials = inputInitials()
+    
+    width, length, height = 96 * inputWidth(), 96 * inputLength(), 96 * inputHeight()  # (96 pixels to an inch) * inches
+
 
     with open("pre.svg", "w") as svg:
         svg.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n') #xml version
@@ -94,20 +108,14 @@ def main():
             '"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n') #doctype
         
         svg.write('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ' \
-            'width="1000%" height="1000%" viewbox="0 0 1000 1000" version="1.1">\n') #svg tag kms
+            'width="1152" height="1728" viewbox="0 0 1152 1728" version="1.1">\n') #svg tag kms
         
-        #base
-        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start_x, start_y, rec_width, rec_length)) 
-        
-               
-        #screw holes for base
-        hole(svg, "w", "f", start_x, start_y, rec_length, rec_width)
-        hole(svg, "w", "b", start_x, start_y, rec_length, rec_width)
-        hole(svg, "l", "r", start_x, start_y, rec_length, rec_width)
-        hole(svg, "l", "l", start_x, start_y, rec_length, rec_width)
-
-
+         
+        create_panel(svg, width, length, "base", (start_x, start_y))
+        create_panel(svg, width, height, "width", (start_x + width + 50, start_y))
+        create_panel(svg, width, height, "width", (start_x, start_y + length + 50))
+        create_panel(svg, length, height, "length", (start_x + width + 50, start_y + length + 50))
+        create_panel(svg, length, height, "length", (start_x, start_y + length + height + 100))
 
         # if len(initials) != 0:
         #     svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \

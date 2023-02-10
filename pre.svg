@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1152" height="1728" viewbox="0 0 1152 1728" version="1.1">
-<rect x="50" y="50" width="480.0" height="480.0" stroke-width="2" stroke="black" fill="none"/>
-<circle cx = "210.0" cy = "524.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "370.0" cy = "524.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "210.0" cy = "56.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "370.0" cy = "56.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "524.0" cy = "210.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "524.0" cy = "370.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "56.0" cy = "210.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "56.0" cy = "370.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<rect x="580.0" y="50" width="480.0" height="372.0" stroke-width="2" stroke="black" fill="none"/>
-<circle cx = "586.0" cy = "174.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "586.0" cy = "298.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "1054.0" cy = "174.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "1054.0" cy = "298.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<polyline points = "744.32,422.0 744.32,436.88 739.5200000000001,436.88 739.5200000000001,443.6 744.32,443.6 744.32,458.48, 752.96,458.48 752.96,443.6 757.7600000000001,443.6 757.7600000000001,436.88 752.96,436.88 752.96,422.0" stroke-width="2" stroke="black" fill="none" transform="rotate(180,744.32,422.0)"/>
-<polyline points = "904.32,422.0 904.32,436.88 899.5200000000001,436.88 899.5200000000001,443.6 904.32,443.6 904.32,458.48, 912.96,458.48 912.96,443.6 917.7600000000001,443.6 917.7600000000001,436.88 912.96,436.88 912.96,422.0" stroke-width="2" stroke="black" fill="none" transform="rotate(180,904.32,422.0)"/>
-<rect x="772.0" y="50" width="96" height="12.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="50" y="580.0" width="480.0" height="372.0" stroke-width="2" stroke="black" fill="none"/>
-<circle cx = "56.0" cy = "704.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "56.0" cy = "828.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "524.0" cy = "704.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<circle cx = "524.0" cy = "828.0" r = "4.32" stroke-width="2" stroke="black" fill="black"/>
-<polyline points = "214.32,952.0 214.32,966.88 209.51999999999998,966.88 209.51999999999998,973.6 214.32,973.6 214.32,988.48, 222.95999999999998,988.48 222.95999999999998,973.6 227.76,973.6 227.76,966.88 222.95999999999998,966.88 222.95999999999998,952.0" stroke-width="2" stroke="black" fill="none" transform="rotate(180,214.32,952.0)"/>
-<polyline points = "374.32,952.0 374.32,966.88 369.52,966.88 369.52,973.6 374.32,973.6 374.32,988.48, 382.96,988.48 382.96,973.6 387.76,973.6 387.76,966.88 382.96,966.88 382.96,952.0" stroke-width="2" stroke="black" fill="none" transform="rotate(180,374.32,952.0)"/>
-<rect x="242.0" y="580.0" width="96" height="12.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="580.0" y="580.0" width="456.0" height="372.0" stroke-width="2" stroke="black" fill="none"/>
-<polyline points = "736.32,952.0 736.32,966.88 731.5200000000001,966.88 731.5200000000001,973.6 736.32,973.6 736.32,988.48, 744.96,988.48 744.96,973.6 749.7600000000001,973.6 749.7600000000001,966.88 744.96,966.88 744.96,952.0" stroke-width="2" stroke="black" fill="none" transform="rotate(180,736.32,952.0)"/>
-<polyline points = "888.32,952.0 888.32,966.88 883.5200000000001,966.88 883.5200000000001,973.6 888.32,973.6 888.32,988.48, 896.96,988.48 896.96,973.6 901.7600000000001,973.6 901.7600000000001,966.88 896.96,966.88 896.96,952.0" stroke-width="2" stroke="black" fill="none" transform="rotate(180,888.32,952.0)"/>
-<polyline points = "580.0,708.32 580.0,723.2 575.2,723.2 575.2,729.9200000000001 580.0,729.9200000000001 580.0,744.8000000000001, 588.64,744.8000000000001 588.64,729.9200000000001 593.44,729.9200000000001 593.44,723.2 588.64,723.2 588.64,708.32" stroke-width="2" stroke="black" fill="none" transform="rotate(270,580.0,708.32)"/>
-<polyline points = "580.0,832.32 580.0,847.2 575.2,847.2 575.2,853.9200000000001 580.0,853.9200000000001 580.0,868.8000000000001, 588.64,868.8000000000001 588.64,853.9200000000001 593.44,853.9200000000001 593.44,847.2 588.64,847.2 588.64,832.32" stroke-width="2" stroke="black" fill="none" transform="rotate(270,580.0,832.32)"/>
-<polyline points = "1036.0,699.68 1036.0,714.56 1031.2,714.56 1031.2,721.28 1036.0,721.28 1036.0,736.16, 1044.64,736.16 1044.64,721.28 1049.44,721.28 1049.44,714.56 1044.64,714.56 1044.64,699.68" stroke-width="2" stroke="black" fill="none" transform="rotate(90,1036.0,699.68)"/>
-<polyline points = "1036.0,823.68 1036.0,838.56 1031.2,838.56 1031.2,845.28 1036.0,845.28 1036.0,860.16, 1044.64,860.16 1044.64,845.28 1049.44,845.28 1049.44,838.56 1044.64,838.56 1044.64,823.68" stroke-width="2" stroke="black" fill="none" transform="rotate(90,1036.0,823.68)"/>
-<rect x="760.0" y="580.0" width="96" height="12.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="50" y="1014.0" width="456.0" height="372.0" stroke-width="2" stroke="black" fill="none"/>
-<polyline points = "206.32,1386.0 206.32,1400.88 201.51999999999998,1400.88 201.51999999999998,1407.6 206.32,1407.6 206.32,1422.48, 214.95999999999998,1422.48 214.95999999999998,1407.6 219.76,1407.6 219.76,1400.88 214.95999999999998,1400.88 214.95999999999998,1386.0" stroke-width="2" stroke="black" fill="none" transform="rotate(180,206.32,1386.0)"/>
-<polyline points = "358.32,1386.0 358.32,1400.88 353.52,1400.88 353.52,1407.6 358.32,1407.6 358.32,1422.48, 366.96,1422.48 366.96,1407.6 371.76,1407.6 371.76,1400.88 366.96,1400.88 366.96,1386.0" stroke-width="2" stroke="black" fill="none" transform="rotate(180,358.32,1386.0)"/>
-<polyline points = "50,1142.32 50,1157.2 45.2,1157.2 45.2,1163.9199999999998 50,1163.9199999999998 50,1178.8, 58.64,1178.8 58.64,1163.9199999999998 63.44,1163.9199999999998 63.44,1157.2 58.64,1157.2 58.64,1142.32" stroke-width="2" stroke="black" fill="none" transform="rotate(270,50,1142.32)"/>
-<polyline points = "50,1266.32 50,1281.2 45.2,1281.2 45.2,1287.9199999999998 50,1287.9199999999998 50,1302.8, 58.64,1302.8 58.64,1287.9199999999998 63.44,1287.9199999999998 63.44,1281.2 58.64,1281.2 58.64,1266.32" stroke-width="2" stroke="black" fill="none" transform="rotate(270,50,1266.32)"/>
-<polyline points = "506.0,1133.68 506.0,1148.5600000000002 501.2,1148.5600000000002 501.2,1155.28 506.0,1155.28 506.0,1170.16, 514.64,1170.16 514.64,1155.28 519.44,1155.28 519.44,1148.5600000000002 514.64,1148.5600000000002 514.64,1133.68" stroke-width="2" stroke="black" fill="none" transform="rotate(90,506.0,1133.68)"/>
-<polyline points = "506.0,1257.68 506.0,1272.5600000000002 501.2,1272.5600000000002 501.2,1279.28 506.0,1279.28 506.0,1294.16, 514.64,1294.16 514.64,1279.28 519.44,1279.28 519.44,1272.5600000000002 514.64,1272.5600000000002 514.64,1257.68" stroke-width="2" stroke="black" fill="none" transform="rotate(90,506.0,1257.68)"/>
-<rect x="230.0" y="1014.0" width="96" height="12.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="580.0" y="1010.0" width="480.0" height="480.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="580.0" y="1010.0" width="192.0" height="12.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="580.0" y="1010.0" width="12.0" height="192.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="868.0" y="1010.0" width="192.0" height="12.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="1048.0" y="1010.0" width="12.0" height="192.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="580.0" y="1478.0" width="192.0" height="12.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="580.0" y="1298.0" width="12.0" height="192.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="868.0" y="1478.0" width="192.0" height="12.0" stroke-width="2" stroke="black" fill="none"/>
-<rect x="1048.0" y="1298.0" width="12.0" height="192.0" stroke-width="2" stroke="black" fill="none"/>
+<rect x="50" y="50" width="480.0" height="480.0" stroke-width="1" stroke="black" fill="none"/>
+<circle cx = "210.0" cy = "524.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "370.0" cy = "524.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "210.0" cy = "56.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "370.0" cy = "56.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "524.0" cy = "210.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "524.0" cy = "370.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "56.0" cy = "210.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "56.0" cy = "370.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<rect x="580.0" y="50" width="480.0" height="372.0" stroke-width="1" stroke="black" fill="none"/>
+<circle cx = "586.0" cy = "174.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "586.0" cy = "298.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "1054.0" cy = "174.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "1054.0" cy = "298.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<polyline points = "744.32,422.0 744.32,436.88 739.5200000000001,436.88 739.5200000000001,443.6 744.32,443.6 744.32,458.48, 752.96,458.48 752.96,443.6 757.7600000000001,443.6 757.7600000000001,436.88 752.96,436.88 752.96,422.0" stroke-width="1" stroke="black" fill="none" transform="rotate(180,744.32,422.0)"/>
+<polyline points = "904.32,422.0 904.32,436.88 899.5200000000001,436.88 899.5200000000001,443.6 904.32,443.6 904.32,458.48, 912.96,458.48 912.96,443.6 917.7600000000001,443.6 917.7600000000001,436.88 912.96,436.88 912.96,422.0" stroke-width="1" stroke="black" fill="none" transform="rotate(180,904.32,422.0)"/>
+<rect x="772.0" y="50" width="96" height="12.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="50" y="580.0" width="480.0" height="372.0" stroke-width="1" stroke="black" fill="none"/>
+<circle cx = "56.0" cy = "704.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "56.0" cy = "828.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "524.0" cy = "704.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<circle cx = "524.0" cy = "828.0" r = "4.32" stroke-width="1" stroke="black" fill="black"/>
+<polyline points = "214.32,952.0 214.32,966.88 209.51999999999998,966.88 209.51999999999998,973.6 214.32,973.6 214.32,988.48, 222.95999999999998,988.48 222.95999999999998,973.6 227.76,973.6 227.76,966.88 222.95999999999998,966.88 222.95999999999998,952.0" stroke-width="1" stroke="black" fill="none" transform="rotate(180,214.32,952.0)"/>
+<polyline points = "374.32,952.0 374.32,966.88 369.52,966.88 369.52,973.6 374.32,973.6 374.32,988.48, 382.96,988.48 382.96,973.6 387.76,973.6 387.76,966.88 382.96,966.88 382.96,952.0" stroke-width="1" stroke="black" fill="none" transform="rotate(180,374.32,952.0)"/>
+<rect x="242.0" y="580.0" width="96" height="12.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="580.0" y="580.0" width="456.0" height="372.0" stroke-width="1" stroke="black" fill="none"/>
+<polyline points = "736.32,952.0 736.32,966.88 731.5200000000001,966.88 731.5200000000001,973.6 736.32,973.6 736.32,988.48, 744.96,988.48 744.96,973.6 749.7600000000001,973.6 749.7600000000001,966.88 744.96,966.88 744.96,952.0" stroke-width="1" stroke="black" fill="none" transform="rotate(180,736.32,952.0)"/>
+<polyline points = "888.32,952.0 888.32,966.88 883.5200000000001,966.88 883.5200000000001,973.6 888.32,973.6 888.32,988.48, 896.96,988.48 896.96,973.6 901.7600000000001,973.6 901.7600000000001,966.88 896.96,966.88 896.96,952.0" stroke-width="1" stroke="black" fill="none" transform="rotate(180,888.32,952.0)"/>
+<polyline points = "580.0,708.32 580.0,723.2 575.2,723.2 575.2,729.9200000000001 580.0,729.9200000000001 580.0,744.8000000000001, 588.64,744.8000000000001 588.64,729.9200000000001 593.44,729.9200000000001 593.44,723.2 588.64,723.2 588.64,708.32" stroke-width="1" stroke="black" fill="none" transform="rotate(270,580.0,708.32)"/>
+<polyline points = "580.0,832.32 580.0,847.2 575.2,847.2 575.2,853.9200000000001 580.0,853.9200000000001 580.0,868.8000000000001, 588.64,868.8000000000001 588.64,853.9200000000001 593.44,853.9200000000001 593.44,847.2 588.64,847.2 588.64,832.32" stroke-width="1" stroke="black" fill="none" transform="rotate(270,580.0,832.32)"/>
+<polyline points = "1036.0,699.68 1036.0,714.56 1031.2,714.56 1031.2,721.28 1036.0,721.28 1036.0,736.16, 1044.64,736.16 1044.64,721.28 1049.44,721.28 1049.44,714.56 1044.64,714.56 1044.64,699.68" stroke-width="1" stroke="black" fill="none" transform="rotate(90,1036.0,699.68)"/>
+<polyline points = "1036.0,823.68 1036.0,838.56 1031.2,838.56 1031.2,845.28 1036.0,845.28 1036.0,860.16, 1044.64,860.16 1044.64,845.28 1049.44,845.28 1049.44,838.56 1044.64,838.56 1044.64,823.68" stroke-width="1" stroke="black" fill="none" transform="rotate(90,1036.0,823.68)"/>
+<rect x="760.0" y="580.0" width="96" height="12.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="50" y="1014.0" width="456.0" height="372.0" stroke-width="1" stroke="black" fill="none"/>
+<polyline points = "206.32,1386.0 206.32,1400.88 201.51999999999998,1400.88 201.51999999999998,1407.6 206.32,1407.6 206.32,1422.48, 214.95999999999998,1422.48 214.95999999999998,1407.6 219.76,1407.6 219.76,1400.88 214.95999999999998,1400.88 214.95999999999998,1386.0" stroke-width="1" stroke="black" fill="none" transform="rotate(180,206.32,1386.0)"/>
+<polyline points = "358.32,1386.0 358.32,1400.88 353.52,1400.88 353.52,1407.6 358.32,1407.6 358.32,1422.48, 366.96,1422.48 366.96,1407.6 371.76,1407.6 371.76,1400.88 366.96,1400.88 366.96,1386.0" stroke-width="1" stroke="black" fill="none" transform="rotate(180,358.32,1386.0)"/>
+<polyline points = "50,1142.32 50,1157.2 45.2,1157.2 45.2,1163.9199999999998 50,1163.9199999999998 50,1178.8, 58.64,1178.8 58.64,1163.9199999999998 63.44,1163.9199999999998 63.44,1157.2 58.64,1157.2 58.64,1142.32" stroke-width="1" stroke="black" fill="none" transform="rotate(270,50,1142.32)"/>
+<polyline points = "50,1266.32 50,1281.2 45.2,1281.2 45.2,1287.9199999999998 50,1287.9199999999998 50,1302.8, 58.64,1302.8 58.64,1287.9199999999998 63.44,1287.9199999999998 63.44,1281.2 58.64,1281.2 58.64,1266.32" stroke-width="1" stroke="black" fill="none" transform="rotate(270,50,1266.32)"/>
+<polyline points = "506.0,1133.68 506.0,1148.5600000000002 501.2,1148.5600000000002 501.2,1155.28 506.0,1155.28 506.0,1170.16, 514.64,1170.16 514.64,1155.28 519.44,1155.28 519.44,1148.5600000000002 514.64,1148.5600000000002 514.64,1133.68" stroke-width="1" stroke="black" fill="none" transform="rotate(90,506.0,1133.68)"/>
+<polyline points = "506.0,1257.68 506.0,1272.5600000000002 501.2,1272.5600000000002 501.2,1279.28 506.0,1279.28 506.0,1294.16, 514.64,1294.16 514.64,1279.28 519.44,1279.28 519.44,1272.5600000000002 514.64,1272.5600000000002 514.64,1257.68" stroke-width="1" stroke="black" fill="none" transform="rotate(90,506.0,1257.68)"/>
+<rect x="230.0" y="1014.0" width="96" height="12.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="580.0" y="1010.0" width="480.0" height="480.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="580.0" y="1010.0" width="192.0" height="12.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="580.0" y="1010.0" width="12.0" height="192.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="868.0" y="1010.0" width="192.0" height="12.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="1048.0" y="1010.0" width="12.0" height="192.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="580.0" y="1478.0" width="192.0" height="12.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="580.0" y="1298.0" width="12.0" height="192.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="868.0" y="1478.0" width="192.0" height="12.0" stroke-width="1" stroke="black" fill="none"/>
+<rect x="1048.0" y="1298.0" width="12.0" height="192.0" stroke-width="1" stroke="black" fill="none"/>
 </svg>

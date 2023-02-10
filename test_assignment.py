@@ -54,19 +54,19 @@ def hole(svg, side, location, start_x, start_y, rec_length, rec_width):
         if side == "l" and location == "l": #length and left
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(screwhole_edge + start_x, i * rec_length/3 + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="black"/>\n'.format(screwhole_edge + start_x, i * rec_length/3 + start_y, screwhole/2))
         elif side == "w" and location == "b": #width and back
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, screwhole_edge + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, screwhole_edge + start_y, screwhole/2))
         elif side == "l" and location == "r": #length and right
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(-screwhole_edge + start_x + rec_width, i * rec_length/3 + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="black"/>\n'.format(-screwhole_edge + start_x + rec_width, i * rec_length/3 + start_y, screwhole/2))
         elif side == "w" and location == "f": #width and front
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole/2))
 
 def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
     if side == "l" and location == "l": #length and left                
@@ -74,7 +74,7 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
             slotx = start_x 
             sloty = i * rec_length/3 + start_y + .045*96       
             svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
-                'stroke-width="2" stroke="black" fill="none" transform="rotate(270,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                'stroke-width="1" stroke="black" fill="none" transform="rotate(270,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
                 slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
                 slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
@@ -84,7 +84,7 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
             slotx = i * rec_width/3 + start_x - .045*96
             sloty = start_y         
             svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
-                'stroke-width="2" stroke="black" fill="none"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                'stroke-width="1" stroke="black" fill="none"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
                 slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
                 slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
@@ -94,7 +94,7 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
             slotx = start_x + rec_width
             sloty = i * rec_length/3 + start_y - .045*96         
             svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
-                'stroke-width="2" stroke="black" fill="none" transform="rotate(90,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                'stroke-width="1" stroke="black" fill="none" transform="rotate(90,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
                 slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
                 slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
@@ -104,7 +104,7 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
             slotx = i * rec_width/3 + start_x + .045*96
             sloty = start_y + rec_length      
             svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
-                'stroke-width="2" stroke="black" fill="none" transform="rotate(180,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                'stroke-width="1" stroke="black" fill="none" transform="rotate(180,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
                 slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
                 slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
@@ -114,18 +114,7 @@ def lidSlot(svg, start_x, start_y, rec_length, rec_width):
     lidx = rec_width/2 + start_x  - .5*96
     lidy =  start_y 
     svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-        'stroke-width="2" stroke="black" fill="none"/>\n'.format(lidx, lidy, 1*96, .125*96))
-
-    # if side == "w":
-    #     lidx = rec_width/2 + start_x - .5*96
-    #     lidy = rec_length + start_y
-    #     svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-    #         'stroke-width="2" stroke="black" fill="none"/>\n'.format(lidx, lidy, rec_width, rec_length))
-    # elif side == "l":
-    #     lidx = rec_width/2 + start_x - .5*96
-    #     lidy = rec_length + start_y
-    #     svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-    #         'stroke-width="2" stroke="black" fill="none"/>\n'.format(lidx, lidy, rec_width, rec_length))
+        'stroke-width="1" stroke="black" fill="none"/>\n'.format(lidx, lidy, 1*96, .125*96))
 
 
 
@@ -141,32 +130,32 @@ def create_panel(svg, width, length, side, start):
 
     if side != 'lid':
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
     elif side == 'lid':
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
         
         #cut rectangles out of lid for slots
         #top left corner
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width/2 - .5*96, T))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1], width/2 - .5*96, T))
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], T, length/2 - .5*96))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1], T, length/2 - .5*96))
         #top right corner
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0] + width/2 + .5*96, start[1], width/2 - .5*96, T))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0] + width/2 + .5*96, start[1], width/2 - .5*96, T))
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0] + width - T, start[1], T, length/2 - .5*96))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0] + width - T, start[1], T, length/2 - .5*96))
         #bottom left corner
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1] + length - T, width/2 - .5*96, T))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1] + length - T, width/2 - .5*96, T))
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1] + length/2 + .5*96, T, length/2 - .5*96))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1] + length/2 + .5*96, T, length/2 - .5*96))
         #bottom right corner
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0] + width/2 + .5*96, start[1] + length - T, width/2 - .5*96, T))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0] + width/2 + .5*96, start[1] + length - T, width/2 - .5*96, T))
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0] + width - T, start[1] + length/2 + .5*96, T, length/2 - .5*96))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0] + width - T, start[1] + length/2 + .5*96, T, length/2 - .5*96))
       
     if side == 'base':
         hole(svg, "w", "f", start[0], start[1], length, width)

@@ -142,9 +142,32 @@ def create_panel(svg, width, length, side, start):
     if side != 'lid':
         svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
             'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
-    elif side == 'lif':
-        svg.write('<polygon points = "{}"')
-
+    elif side == 'lid':
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
+        
+        #cut rectangles out of lid for slots
+        #top left corner
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width/2 - .5*96, T))
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], T, length/2 - .5*96))
+        #top right corner
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0] + width/2 + .5*96, start[1], width/2 - .5*96, T))
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0] + width - T, start[1], T, length/2 - .5*96))
+        #bottom left corner
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1] + length - T, width/2 - .5*96, T))
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1] + length/2 + .5*96, T, length/2 - .5*96))
+        #bottom right corner
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0] + width/2 + .5*96, start[1] + length - T, width/2 - .5*96, T))
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0] + width - T, start[1] + length/2 + .5*96, T, length/2 - .5*96))
+      
     if side == 'base':
         hole(svg, "w", "f", start[0], start[1], length, width)
         hole(svg, "w", "b", start[0], start[1], length, width)
@@ -184,13 +207,13 @@ def main():
         
          
         create_panel(svg, width, length, "base", (start_x, start_y))
-        create_panel(svg, width, length, "lid", (start_x, start_y))
+
         create_panel(svg, width, height, "width", (start_x + width + 50, start_y))
         create_panel(svg, width, height, "width", (start_x, start_y + length + 50))
         create_panel(svg, length, height, "length", (start_x + width + 50, start_y + length + 50))
         create_panel(svg, length, height, "length", (start_x, start_y + length + height + 100))
-
-
+        create_panel(svg, width, length, "lid", (start_x + width + 50, start_y + length + width))
+        
 
         # if len(initials) != 0:
         #     svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \

@@ -67,6 +67,48 @@ def hole(svg, side, location, start_x, start_y, rec_length, rec_width):
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
                     'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole/2))
 
+def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
+    if side == "l" and location == "l": #length and left                
+        for i in range(1, 3, 1):   
+            slotx = start_x 
+            sloty = i * rec_length/3 + start_y + .045*96       
+            svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
+                'stroke-width="2" stroke="black" fill="none" transform="rotate(270,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
+                slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
+                slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
+                slotx+.09*96, sloty, slotx, sloty))  
+    elif side == "w" and location == "b": #width and back
+        for i in range(1, 3):  
+            slotx = i * rec_width/3 + start_x - .045*96
+            sloty = start_y         
+            svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
+                'stroke-width="2" stroke="black" fill="none"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
+                slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
+                slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
+                slotx+.09*96, sloty))               
+    elif side == "l" and location == "r": #length and right                
+        for i in range(1, 3, 1): 
+            slotx = start_x + rec_width
+            sloty = i * rec_length/3 + start_y - .045*96         
+            svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
+                'stroke-width="2" stroke="black" fill="none" transform="rotate(90,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
+                slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
+                slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
+                slotx+.09*96, sloty, slotx, sloty))  
+    elif side == "w" and location == "f": #width and front                
+        for i in range(1, 3, 1):    
+            slotx = i * rec_width/3 + start_x + .045*96
+            sloty = start_y + rec_length      
+            svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
+                'stroke-width="2" stroke="black" fill="none" transform="rotate(180,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
+                slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
+                slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
+                slotx+.09*96, sloty, slotx, sloty))
+
 
 def create_panel(svg, width, length, side, start):
     T = .125 * 96
@@ -89,6 +131,11 @@ def create_panel(svg, width, length, side, start):
     elif side == 'width':
         hole(svg, "l", "l", start[0], start[1], length, width)
         hole(svg, "l", "r", start[0], start[1], length, width)
+        slot(svg, "w", "b", start[0], start[1], length, width)
+    elif side == 'length':
+        slot(svg, "w", "b", start[0], start[1], length, width)
+        slot(svg, "l", "l", start[0], start[1], length, width)
+        slot(svg, "l", "r", start[0], start[1], length, width)
 
         
 

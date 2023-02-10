@@ -54,19 +54,19 @@ def hole(svg, side, location, start_x, start_y, rec_length, rec_width):
         if side == "l" and location == "l": #length and left
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="1" stroke="black" fill="black"/>\n'.format(screwhole_edge + start_x, i * rec_length/3 + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="none"/>\n'.format(screwhole_edge + start_x, i * rec_length/3 + start_y, screwhole/2))
         elif side == "w" and location == "b": #width and back
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="1" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, screwhole_edge + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="none"/>\n'.format(i * rec_width/3 + start_x, screwhole_edge + start_y, screwhole/2))
         elif side == "l" and location == "r": #length and right
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="1" stroke="black" fill="black"/>\n'.format(-screwhole_edge + start_x + rec_width, i * rec_length/3 + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="none"/>\n'.format(-screwhole_edge + start_x + rec_width, i * rec_length/3 + start_y, screwhole/2))
         elif side == "w" and location == "f": #width and front
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="1" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="none"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole/2))
 
 def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
     if side == "l" and location == "l": #length and left                

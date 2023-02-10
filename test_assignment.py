@@ -19,6 +19,12 @@ def inputHeight():
         input_height = float(input("Input a height (2-4 in): "))
     return input_height
 
+def inputMsg():
+    msg = input('Input a custom message to put on the lid! (Max 20 Characters): ')
+    while len(msg) > 20:
+        msg = input('The message exceeded 20 characters. Input a custom message to put on the lid! (Max 20 Characters): ')
+    return msg
+
 def inputHorCompartment():
     input_Horcompartment = 0
     while input_Horcompartment < .5 or input_Horcompartment > 5:  #input_length instead of 5 but need it to be a global variable
@@ -109,8 +115,22 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
                 slotx+.09*96, sloty, slotx, sloty))
 
+def lidSlot(svg, start_x, start_y, rec_length, rec_width):
+    lidx = rec_width/2 + start_x  - .5*96
+    lidy =  start_y 
+    svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+        'stroke-width="1" stroke="black" fill="none"/>\n'.format(lidx, lidy, 1*96, .125*96))
 
-def create_panel(svg, width, length, side, start):
+def add_logo(svg, x, y, length, width):
+    # length = height
+    svg.write('<image href="./img/cu_shield.svg" x="{}" y="{}" width="{}" ' \
+        'height="{}" transform="translate({},{})"/>\n'.format(x + width/2, y + length/2,
+        length/2, length/2, -1 * length/4, -1 * length/3))
+    svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \
+                'text-anchor="middle"> Digital Manufacturing </text>\n'.format(x + width/2, 
+                y + length/2 + (length/96 * 20), width / 96 * 6))
+
+def create_panel(svg, width, length, side, start, msg='', logo=False):
     T = .125 * 96
 
     if side == 'width':
@@ -131,11 +151,39 @@ def create_panel(svg, width, length, side, start):
     elif side == 'width':
         hole(svg, "l", "l", start[0], start[1], length, width)
         hole(svg, "l", "r", start[0], start[1], length, width)
-        slot(svg, "w", "b", start[0], start[1], length, width)
+        slot(svg, "w", "f", start[0], start[1], length, width)
+        lidSlot(svg, start[0], start[1], length, width)
+        if logo:
+            add_logo(svg, start[0], start[1], length, width)
     elif side == 'length':
-        slot(svg, "w", "b", start[0], start[1], length, width)
+        slot(svg, "w", "f", start[0], start[1], length, width)
         slot(svg, "l", "l", start[0], start[1], length, width)
         slot(svg, "l", "r", start[0], start[1], length, width)
+        lidSlot(svg, start[0], start[1], length, width)
+    elif side == 'lid':
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1], width/2 - .5*96, T))
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1], T, length/2 - .5*96))
+        #top right corner
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0] + width/2 + .5*96, start[1], width/2 - .5*96, T))
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0] + width - T, start[1], T, length/2 - .5*96))
+        #bottom left corner
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1] + length - T, width/2 - .5*96, T))
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1] + length/2 + .5*96, T, length/2 - .5*96))
+        #bottom right corner
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0] + width/2 + .5*96, start[1] + length - T, width/2 - .5*96, T))
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0] + width - T, start[1] + length/2 + .5*96, T, length/2 - .5*96))
+        if msg != '':
+            svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \
+                    'text-anchor="middle"> {} </text>\n'.format(start[0] + width/2, 
+                    start[1] + length/2, width / 96 * 7, msg))
 
         
 
@@ -146,7 +194,7 @@ def main():
     #initials = inputInitials()
     
     width, length, height = 96 * inputWidth(), 96 * inputLength(), 96 * inputHeight()  # (96 pixels to an inch) * inches
-
+    lid_msg = inputMsg()
 
     with open("pre.svg", "w") as svg:
         svg.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n') #xml version
@@ -159,10 +207,11 @@ def main():
         
          
         create_panel(svg, width, length, "base", (start_x, start_y))
-        create_panel(svg, width, height, "width", (start_x + width + 50, start_y))
+        create_panel(svg, width, height, "width", (start_x + width + 50, start_y), logo=True)
         create_panel(svg, width, height, "width", (start_x, start_y + length + 50))
         create_panel(svg, length, height, "length", (start_x + width + 50, start_y + length + 50))
         create_panel(svg, length, height, "length", (start_x, start_y + length + height + 100))
+        create_panel(svg, width, length, "lid", (start_x + width + 50, start_y + length + width), msg=lid_msg)
 
         # if len(initials) != 0:
         #     svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \

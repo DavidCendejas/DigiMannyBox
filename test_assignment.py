@@ -19,17 +19,18 @@ def inputHeight():
         input_height = float(input("Input a height (2-4 in): "))
     return input_height
 
-def inputHorCompartment():
-    input_Horcompartment = 0
-    while input_Horcompartment < .5 or input_Horcompartment > 5:  #input_length instead of 5 but need it to be a global variable
-        input_Horcompartment = float(input("How far from the front do you want the compartment (1-5 in): "))
-    return input_Horcompartment
+# def wantCompartment():
+#     while want_compartment != "N" or want_compartment != "Y":
+#         want_compartment = input("Do you want a divider? (Y/N): ")
+#     return want_compartment
 
-def inputVerCompartment():
-    input_Vercompartment = 0
-    while input_Vercompartment < 1 or input_Vercompartment > 5: #input_width instead of 5 but need it to be a global variable
-        input_Vercompartment = float(input("How far from the right do you want the compartment (1-5 in): "))
-    return input_Vercompartment
+# def inputHorCompartment(want_compartment, input_length):
+#     input_Horcompartment = 0
+#     if want_compartment == "Y":
+#         while input_Horcompartment < 1 or input_Horcompartment > input_length:  #input_length instead of 5 but need it to be a global variable
+#             input_Horcompartment = float(input("How far from the front do you want the compartment" \
+#                 "(1-" + input_length + " in): "))
+#     return input_Horcompartment
 
 def inputInitials():
     while True:
@@ -109,6 +110,24 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
                 slotx+.09*96, sloty, slotx, sloty))
 
+def lidSlot(svg, start_x, start_y, rec_length, rec_width):
+    lidx = rec_width/2 + start_x  - .5*96
+    lidy =  start_y 
+    svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+        'stroke-width="2" stroke="black" fill="none"/>\n'.format(lidx, lidy, 1*96, .125*96))
+
+    # if side == "w":
+    #     lidx = rec_width/2 + start_x - .5*96
+    #     lidy = rec_length + start_y
+    #     svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+    #         'stroke-width="2" stroke="black" fill="none"/>\n'.format(lidx, lidy, rec_width, rec_length))
+    # elif side == "l":
+    #     lidx = rec_width/2 + start_x - .5*96
+    #     lidy = rec_length + start_y
+    #     svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+    #         'stroke-width="2" stroke="black" fill="none"/>\n'.format(lidx, lidy, rec_width, rec_length))
+
+
 
 def create_panel(svg, width, length, side, start):
     T = .125 * 96
@@ -119,9 +138,12 @@ def create_panel(svg, width, length, side, start):
     elif side == 'length':
         width = width - 2*T
         length = length - T
-    
-    svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
+
+    if side != 'lid':
+        svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
             'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
+    elif side == 'lif':
+        svg.write('<polygon points = "{}"')
 
     if side == 'base':
         hole(svg, "w", "f", start[0], start[1], length, width)
@@ -131,11 +153,14 @@ def create_panel(svg, width, length, side, start):
     elif side == 'width':
         hole(svg, "l", "l", start[0], start[1], length, width)
         hole(svg, "l", "r", start[0], start[1], length, width)
-        slot(svg, "w", "b", start[0], start[1], length, width)
+        slot(svg, "w", "f", start[0], start[1], length, width)
+        lidSlot(svg, start[0], start[1], length, width)
     elif side == 'length':
-        slot(svg, "w", "b", start[0], start[1], length, width)
+        slot(svg, "w", "f", start[0], start[1], length, width)
         slot(svg, "l", "l", start[0], start[1], length, width)
         slot(svg, "l", "r", start[0], start[1], length, width)
+        lidSlot(svg, start[0], start[1], length, width)
+            
 
         
 
@@ -159,10 +184,13 @@ def main():
         
          
         create_panel(svg, width, length, "base", (start_x, start_y))
+        create_panel(svg, width, length, "lid", (start_x, start_y))
         create_panel(svg, width, height, "width", (start_x + width + 50, start_y))
         create_panel(svg, width, height, "width", (start_x, start_y + length + 50))
         create_panel(svg, length, height, "length", (start_x + width + 50, start_y + length + 50))
         create_panel(svg, length, height, "length", (start_x, start_y + length + height + 100))
+
+
 
         # if len(initials) != 0:
         #     svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \

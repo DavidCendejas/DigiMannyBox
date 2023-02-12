@@ -25,29 +25,6 @@ def inputMsg():
         msg = input('The message exceeded 20 characters. Input a custom message to put on the lid! (Max 20 Characters): ')
     return msg
 
-def inputHorCompartment():
-    input_Horcompartment = 0
-    while input_Horcompartment < .5 or input_Horcompartment > 5:  #input_length instead of 5 but need it to be a global variable
-        input_Horcompartment = float(input("How far from the front do you want the compartment (1-5 in): "))
-    return input_Horcompartment
-
-def inputVerCompartment():
-    input_Vercompartment = 0
-    while input_Vercompartment < 1 or input_Vercompartment > 5: #input_width instead of 5 but need it to be a global variable
-        input_Vercompartment = float(input("How far from the right do you want the compartment (1-5 in): "))
-    return input_Vercompartment
-
-def inputInitials():
-    while True:
-        cand_initials = input('Input your initials (max 3): ')
-        if len(cand_initials) <= 3:
-            if cand_initials.isalpha() or cand_initials == '':
-                return cand_initials.upper()
-            else:
-                print('Invalid input')
-        else:
-            print('Invalid Input')
-
 '''
 create screw holes
 side determines if it's on the length or width section
@@ -59,19 +36,19 @@ def hole(svg, side, location, start_x, start_y, rec_length, rec_width):
         if side == "l" and location == "l": #length and left
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(screwhole_edge + start_x, i * rec_length/3 + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="none"/>\n'.format(screwhole_edge + start_x, i * rec_length/3 + start_y, screwhole/2))
         elif side == "w" and location == "b": #width and back
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, screwhole_edge + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="none"/>\n'.format(i * rec_width/3 + start_x, screwhole_edge + start_y, screwhole/2))
         elif side == "l" and location == "r": #length and right
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(-screwhole_edge + start_x + rec_width, i * rec_length/3 + start_y, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="none"/>\n'.format(-screwhole_edge + start_x + rec_width, i * rec_length/3 + start_y, screwhole/2))
         elif side == "w" and location == "f": #width and front
             for i in range(1, 3, 1):          
                 svg.write('<circle cx = "{}" cy = "{}" r = "{}" ' \
-                    'stroke-width="2" stroke="black" fill="black"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole/2))
+                    'stroke-width="1" stroke="black" fill="none"/>\n'.format(i * rec_width/3 + start_x, -screwhole_edge + start_y + rec_length, screwhole/2))
 
 def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
     if side == "l" and location == "l": #length and left                
@@ -79,7 +56,7 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
             slotx = start_x 
             sloty = i * rec_length/3 + start_y + .045*96       
             svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
-                'stroke-width="2" stroke="black" fill="none" transform="rotate(270,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                'stroke-width="1" stroke="black" fill="none" transform="rotate(270,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
                 slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
                 slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
@@ -89,7 +66,7 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
             slotx = i * rec_width/3 + start_x - .045*96
             sloty = start_y         
             svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
-                'stroke-width="2" stroke="black" fill="none"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                'stroke-width="1" stroke="black" fill="none"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
                 slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
                 slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
@@ -99,7 +76,7 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
             slotx = start_x + rec_width
             sloty = i * rec_length/3 + start_y - .045*96         
             svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
-                'stroke-width="2" stroke="black" fill="none" transform="rotate(90,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                'stroke-width="1" stroke="black" fill="none" transform="rotate(90,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
                 slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
                 slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
@@ -109,7 +86,7 @@ def slot(svg, side, location, start_x, start_y, rec_length, rec_width):
             slotx = i * rec_width/3 + start_x + .045*96
             sloty = start_y + rec_length      
             svg.write('<polyline points = "{},{} {},{} {},{} {},{} {},{} {},{}, {},{} {},{} {},{} {},{} {},{} {},{}" ' \
-                'stroke-width="2" stroke="black" fill="none" transform="rotate(180,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
+                'stroke-width="1" stroke="black" fill="none" transform="rotate(180,{},{})"/>\n'.format(slotx, sloty, slotx, sloty+.155*96,  
                 slotx-.05*96, sloty+.155*96, slotx-.05*96, sloty+.225*96, slotx, sloty+.225*96,
                 slotx, sloty+.38*96, slotx+.09*96, sloty+.38*96, slotx+.09*96, sloty+.225*96, 
                 slotx+.14*96, sloty+.225*96, slotx+.14*96, sloty+.155*96, slotx+.09*96, sloty+.155*96, 
@@ -128,7 +105,7 @@ def add_logo(svg, x, y, length, width):
         length/2, length/2, -1 * length/4, -1 * length/3))
     svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \
                 'text-anchor="middle"> Digital Manufacturing </text>\n'.format(x + width/2, 
-                y + length/2 + (length/96 * 20), width / 96 * 6))
+                y + length/2 + (length/96 * 20), width / 96 * 5)) # + (length/96 * 20)
 
 def create_panel(svg, width, length, side, start, msg='', logo=False):
     T = .125 * 96
@@ -141,7 +118,7 @@ def create_panel(svg, width, length, side, start, msg='', logo=False):
         length = length - T
     
     svg.write('<rect x="{}" y="{}" width="{}" height="{}" ' \
-            'stroke-width="2" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
+            'stroke-width="1" stroke="black" fill="none"/>\n'.format(start[0], start[1], width, length))
 
     if side == 'base':
         hole(svg, "w", "f", start[0], start[1], length, width)
@@ -195,8 +172,9 @@ def main():
     
     width, length, height = 96 * inputWidth(), 96 * inputLength(), 96 * inputHeight()  # (96 pixels to an inch) * inches
     lid_msg = inputMsg()
+    filename = input("Input a file name for the svg file: ")
 
-    with open("pre.svg", "w") as svg:
+    with open("{}.svg".format(filename), "w") as svg:
         svg.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n') #xml version
         
         svg.write('<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" ' \
@@ -204,23 +182,18 @@ def main():
         
         svg.write('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ' \
             'width="1152" height="1728" viewbox="0 0 1152 1728" version="1.1">\n') #svg tag kms
-        
          
         create_panel(svg, width, length, "base", (start_x, start_y))
-        create_panel(svg, width, height, "width", (start_x + width + 50, start_y), logo=True)
-        create_panel(svg, width, height, "width", (start_x, start_y + length + 50))
-        create_panel(svg, length, height, "length", (start_x + width + 50, start_y + length + 50))
-        create_panel(svg, length, height, "length", (start_x, start_y + length + height + 100))
-        create_panel(svg, width, length, "lid", (start_x + width + 50, start_y + length + width), msg=lid_msg)
-
-        # if len(initials) != 0:
-        #     svg.write('<text x="{}" y="{}" font-size="{}" dominant-baseline="central" ' \
-        #         'text-anchor="middle"> {} </text>\n'.format(100 + (square_dim/2), 
-        #         100 + (square_dim/2), square_dim / 96 * 32, initials))
+        create_panel(svg, width, height, "width", (start_x, start_y + length + 10), logo=True)
+        create_panel(svg, width, height, "width", (start_x, start_y + length + height + 10))
+        create_panel(svg, width, length, "lid", (start_x, start_y + length + (2 * height) + 10), msg=lid_msg)
+        create_panel(svg, length, height, "length", (start_x + width + 10, start_y))
+        create_panel(svg, length, height, "length", (start_x + width + 10, start_y + height + 10))
+        # create_panel(svg, width, length, "lid", (start_x + width + 10, start_y + length + height + 10), msg=lid_msg)
 
         svg.write('</svg>') #svg end tag
     
-    print("pre.svg has been created.")
+    print("{}.svg has been created.".format(filename))
 
 if __name__=="__main__":
     main()
